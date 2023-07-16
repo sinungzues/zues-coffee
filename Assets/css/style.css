@@ -514,6 +514,16 @@ footer .credit a {
   animation: modal 0.5s linear;
 }
 
+.modal .modal-container .modal-content .produk-stars{
+  padding: 0.8rem;
+  font-size: 1.7rem;
+  color: var(--bg);
+}
+
+.modal .modal-container .modal-content .produk-stars .star-full{
+  fill: var(--bg);
+}
+
 /* Modal animation */
 @keyframes modal{
   from{
