@@ -12,8 +12,8 @@
   text-decoration: none;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -83,6 +83,95 @@ body {
   display: none;
 }
 
+/* Navbar search form */
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: var(--primary);
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.navbar .search-form input::placeholder{
+  color: var(--bg);
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
+}
+
+/* Shopping cart */
+.shopping-cart{
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 35rem;
+  padding: 0 1.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  transition: 0.3s linear;
+}
+
+.shopping-cart.active{
+  right: 0;
+}
+
+.shopping-cart .cart-item{
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #fff;
+  position: relative;
+}
+
+.shopping-cart h3{
+  font-size: 1.6rem;
+  padding-bottom: 0.5rem;
+}
+
+.shopping-cart .item-price{
+  font-size: 1.2rem;
+}
+
+.shopping-cart .delete-item{
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+.shopping-cart .delete-item:hover{
+  color: var(--bg);
+}
+
+.shopping-cart img{
+  height: 6rem;
+  border-radius: 50%;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -144,183 +233,337 @@ body {
   box-shadow: 1px 1px 3px rgba(20, 10, 0, 0.5);
 }
 
-
-
 /* About Section */
-.about, .menu, .kontak{
-    padding: 8rem 7% 1.4rem;
+.about,
+.menu,
+.kontak,
+.produk {
+  padding: 8rem 7% 1.4rem;
 }
 
-.about h2, .menu h2, .kontak h2{
-    text-align: center;
-    font-size: 2.6rem;
-    margin-bottom: 3rem;
+.about h2,
+.menu h2,
+.kontak h2,
+.produk h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
 }
 
-.about h2 span, .menu h2 span, .kontak h2 span{
-    color: var(--primary);
+.about h2 span,
+.menu h2 span,
+.kontak h2 span,
+.produk h2 span {
+  color: var(--primary);
 }
 
-.about .row{
-    display: flex;
+.about .row {
+  display: flex;
 }
 
-.about .row .about-img{
-    flex: 1 1 45rem;
+.about .row .about-img {
+  flex: 1 1 45rem;
 }
 
-.about .row .about-img img{
-    width: 100%;
+.about .row .about-img img {
+  width: 100%;
 }
 
-.about .row .content{
-    flex: 1 1 35rem;
-    padding: 0 1rem;
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
 }
 
-.about .row .content h3{
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
-.about .row .content p{
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
-    font-weight: 100;
-    line-height: 1.6;
-    text-align: justify;
+.about .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 100;
+  line-height: 1.6;
+  text-align: justify;
 }
 
 /* Menu Section */
-.menu h2, .kontak h2{
-    margin-bottom: 1rem;
+.menu h2,
+.kontak h2 {
+  margin-bottom: 1rem;
 }
-.menu p, .kontak p{
-    text-align: center;
-    max-width: 30rem;
-    margin: auto;
-    font-weight: 100;
-    line-height: 1.6;
-}
-
-.menu .row{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 5rem;
-    justify-content: center;
+.menu p,
+.kontak p,
+.produk p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+  font-weight: 100;
+  line-height: 1.6;
 }
 
-.menu .row .menu-card{
-    text-align: center;
-    padding-bottom: 2rem;
+.menu .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
 }
 
-.menu .row .menu-card img{
-    border-radius: 50%;
-    width: 80%;
+.menu .row .menu-card {
+  text-align: center;
+  padding-bottom: 2rem;
 }
 
-.menu .row .menu-card-title{
-    margin: 1rem auto 0.5rem;
-    font-size: 1.5rem;
+.menu .row .menu-card img {
+  border-radius: 50%;
+  width: 80%;
 }
 
-.menu .row .menu-card-price{
-    font-size: 1.2rem;
+.menu .row .menu-card-title {
+  margin: 1rem auto 0.5rem;
+  font-size: 1.5rem;
+}
+
+.menu .row .menu-card-price {
+  font-size: 1.2rem;
+}
+
+/* Produk Section */
+.produk .row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.produk .produk-card{
+  text-align: center;
+  border: 1px solid #666;
+  padding: 2rem;
+}
+
+.produk .produk-icons{
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.produk .produk-icons a{
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  margin: 0.3rem;
+  border: 1px solid #666;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.produk .produk-icons a:hover{
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.produk .produk-image{
+  padding: 1rem 0;
+}
+
+.produk .produk-image img{
+  height: 25rem;
+}
+
+.produk .produk-konten h3{
+  font-size: 2rem;
+}
+
+.produk .produk-stars{
+  padding: 0.8rem;
+  font-size: 1.7rem;
+  color: var(--primary);
+}
+
+.produk .produk-stars .star-full{
+  fill: var(--primary);
+}
+
+.produk .produk-price{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.produk .produk-price span{
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1rem;
 }
 
 /* Kontak Section */
-.kontak .row{
-    display: flex;
-    margin-top: 2rem;
-    background-color: #201000;
-    flex-wrap: wrap;
+.kontak .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #201000;
+  flex-wrap: wrap;
 }
 
-.kontak .row .map{
-    flex: 1 1 45rem;
-    width: 100%;
-    object-fit: cover;
+.kontak .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
 }
 
-.kontak .row form{
-    flex: 1 1 45rem;
-    padding: 5rem 2rem;
-    text-align: center;
+.kontak .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
 }
 
-.kontak .row form .input-group{
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    background-color: var(--bg);
-    border: 1px solid #eee;
-    padding-left: 2rem;
-    border-radius: 1rem;
+.kontak .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  padding-left: 2rem;
+  border-radius: 1rem;
 }
 
-.kontak .row form .input-group input{
-    width: 100%;
-    padding: 2rem;
-    font-size: 1.7rem;
-    background: none;
-    color: #fff;
+.kontak .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
 }
 
-.kontak .row form button{
-    margin-top: 3rem;
-    display: inline-block;
-    padding: 1rem 3rem;
-    font-size: 1.7rem;
-    color: #fff;
-    background-color: var(--primary);
-    cursor: pointer;
-    border-radius: 0.5rem;
+.kontak .row form button {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--primary);
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 /* Footer */
-footer{
-    background-color: var(--primary);
-    text-align: center;
-    padding: 1rem 0 3rem;
-    margin-top: 3rem;
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
 }
 
-footer .socials{
-    padding: 1rem 0;
+footer .socials {
+  padding: 1rem 0;
 }
 
-footer .socials a{
-    color: #fff;
-    margin: 1rem;
+footer .socials a {
+  color: #fff;
+  margin: 1rem;
 }
 
-footer .socials a:hover{
-    color: var(--bg);
+footer .socials a:hover {
+  color: var(--bg);
 }
 
-footer .links{
-    margin-bottom: 1.4rem;
+footer .links {
+  margin-bottom: 1.4rem;
 }
 
-footer .links a{
-    color: #fff;
-    padding: 0.7rem 1rem;
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
 }
 
-footer .links a:hover{
-    color: var(--bg);
+footer .links a:hover {
+  color: var(--bg);
 }
 
-footer .credit{
-    font-size: 0/8rem;
+footer .credit {
+  font-size: 0/8rem;
 }
 
-footer .credit a{
-    color: var(--bg);
-    font-weight: 700;
+footer .credit a {
+  color: var(--bg);
+  font-weight: 700;
 }
 
+/* Modal Box */
+/* Item Detail */
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-container{
+  position: relative;
+  background-color: var(--primary);
+  color: var(--bg);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid var(--bg);
+  animation: modal 0.5s linear;
+}
+
+/* Modal animation */
+@keyframes modal{
+  from{
+    top: -300px;
+    opacity: 0;
+  }
+
+  to{
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close-icon{
+  position: absolute;
+  right: 1rem;
+  color: var(--bg);
+}
+
+.modal-container .modal-content{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-container .modal-content img{
+  height: 20rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-container .modal-content h3{
+  font-size: 1.5rem;
+}
+
+.modal-container .modal-content p{
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+
+.modal-container .modal-content a{
+  display: flex;
+  gap: 1rem;
+  width: 13rem;
+  background-color: var(--bg);
+  color: #fff;
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+  align-items: center;
+}
 
 /* Media Queries */
 
@@ -377,39 +620,48 @@ footer .credit a{
     transform: scaleX(0.2);
   }
 
-  .about .row{
+  .navbar .search-form{
+    width: 90%;
+    right: 2rem;
+  }
+
+  .about .row {
     flex-wrap: wrap;
   }
 
-  .about .row .about-img img{
+  .about .row .about-img img {
     height: 24rem;
     object-fit: cover;
     object-position: center;
   }
 
-  .about .row .content{
+  .about .row .content {
     padding: 0;
   }
 
-  .about .row .content h3{
+  .about .row .content h3 {
     margin-top: 1rem;
     font-size: 2rem;
   }
 
-  .about .row .content p{
+  .about .row .content p {
     font-size: 1.6rem;
   }
 
-  .menu p{
+  .menu p {
     font-size: 1.2rem;
   }
 
-  .kontak .row .map{
+  .kontak .row .map {
     height: 30rem;
   }
 
-  .kontak .row form{
+  .kontak .row form {
     padding-top: 0;
+  }
+
+  .modal-container .modal-content{
+    flex-wrap: wrap;
   }
 }
 
